@@ -1,0 +1,60 @@
+{
+    "Акварель": {
+        "Натюрморт": [
+            [
+                "AgACAgIAAxkBAAPWZpgaSuzjOXoXhkAU0urMBi__9HkAArrhMRubdMBIk4dG0bPJ3zYBAAMCAAN5AAM1BA",
+                "AQADuuExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPYZpgaXUSz5j4vQL2TMVlKWQABrsBRAAK74TEbm3TASBeTMZmYI2foAQADAgADeQADNQQ",
+                "AQADu-ExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPaZpgaa3MwZbWVJtUjEMCjUCZ69xYAArzhMRubdMBIFIlHWaCdBvMBAAMCAAN5AAM1BA",
+                "AQADvOExG5t0wEh-"
+            ]
+        ]
+    },
+    "Графика": {
+        "Гипсовые головы": [
+            [
+                "AgACAgIAAxkBAAPcZpgallC6qtZfWwLG07T01vBOL-YAAr3hMRubdMBI8uWcb1nRu7QBAAMCAAN5AAM1BA",
+                "AQADveExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPeZpgaqEDEsIEpvu9PlsirI5N7N5EAAr_hMRubdMBI0h4m81buGMwBAAMCAAN5AAM1BA",
+                "AQADv-ExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPiZpga_dLLM4gmVw3vHkBJLvGpiFUAAsThMRubdMBIE5XQ53yoPL4BAAMCAAN5AAM1BA",
+                "AQADxOExG5t0wEh-"
+            ]
+        ],
+        "Интерьер": [
+            [
+                "AgACAgIAAxkBAAPqZpgbJ7pB7griBlAdGUHaIrq3fFsAAsjhMRubdMBIy13-3SaTkJ8BAAMCAAN5AAM1BA",
+                "AQADyOExG5t0wEh-"
+            ]
+        ]
+    },
+    "Масло": {
+        "Натюрморт": [
+            [
+                "AgACAgIAAxkBAAPgZpga7IIr22mteSzyej5mSPvDLwkAAsPhMRubdMBItn-TfsKT5FQBAAMCAAN5AAM1BA",
+                "AQADw-ExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPkZpgbB97o2200wCjuY4Tr4kNsbzsAAsXhMRubdMBImC3l-DmcKR8BAAMCAAN5AAM1BA",
+                "AQADxeExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPmZpgbEV2asgGs6VqkdlwZU2WbsEAAAsbhMRubdMBIGuofGIaYwCQBAAMCAAN5AAM1BA",
+                "AQADxuExG5t0wEh-"
+            ],
+            [
+                "AgACAgIAAxkBAAPoZpgbHR3UY0RIqoQfXyg9u83UF-gAAsfhMRubdMBIxSpQUUFg0-gBAAMCAAN5AAM1BA",
+                "AQADx-ExG5t0wEh-"
+            ]
+        ]
+    }
+}
