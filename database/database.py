@@ -2,24 +2,20 @@ import os
 
 from services.file_handling import json_to_dict
 
-data = json_to_dict(os.path.normpath(r'C:\Users\Asus\PycharmProjects\TelegramBot\Maryam\media_id.json'))
+# Загружаем данные из JSON файла и нормализуем путь для корректного отображения
+data = json_to_dict(os.path.normpath(r'C:\Users\Asus\PycharmProjects\Ordering_Bot\media_id.json'))
 
-LEXICON_CAT: list[str] = list(data.keys())
-LEXICON_SUBCAT: list[list[str]] = [list(sub.keys()) for sub in data.values()]
-LEXICON_ITEM: list[list[list[str]]] = [[paintings for paintings in sub.values()] for sub in data.values()]
+# Формируем словари для категорий, подкатегорий и предметов на основе данных JSON
+LEXICON_CAT: list[str] = list(data.keys())  # Список категорий
+LEXICON_SUBCAT: list[list[str]] = [list(sub.keys()) for sub in data.values()]  # Список подкатегорий
+LEXICON_ITEM: list[list[list[str]]] = [[paintings for paintings in sub.values()] for sub in
+                                       data.values()]  # Список картин
+
+# ID фото для превью
 PREVIEW = "AgACAgIAAxkBAAPPZpgZn_QFXQypa38LzpL5hXmv0hYAArThMRubdMBI82MPVraUCQgBAAMCAAN5AAM1BA"
-# Создаем шаблон заполнения словаря с выборами пользователей
-user_dict_template: dict[str: int] = {
-    'level': 0,
-    'cat': 0,
-    'sub_cat': 0,
-    'item': 0,
-    'payment': 0,
-    'start': 0
-}
 
 # Инициализируем "базу данных" пользователей
-USERS: dict[int: dict[str: int]] = {}
+USERS: dict[int, dict[str, int]] = {}
 
-# Инициализируем "базу данных" сообщений для сброса при коменде /reset
-CHANGED: dict[int: list] = {}
+# Инициализируем "базу данных" для отслеживания изменений сообщений при команде /reset
+CHANGED: dict[int, list] = {}

@@ -8,51 +8,53 @@ from config_data.config import load_config
 from handlers import user_handlers, other_handlers, admin_handlers
 from keyboards.main_menu import set_main_menu
 
-# Инициализируем логгер
+# Инициализация логгера
 logger = logging.getLogger(__name__)
 
 
 # Функция конфигурирования и запуска бота
 async def main():
-    # Конфигурируем логирование
-    logging.basicConfig(level=logging.INFO)
-    formatter = logging.Formatter('%(filename)s:%(lineno)d #%(levelname)-8s '
-                                  '[%(asctime)s] - %(name)s - %(message)s')
-    file_handler = logging.FileHandler('bot_logs.log', mode='w', encoding='utf-8')
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-    # Выводим в консоль информацию о начале запуска бота
+    # Конфигурирование логирования
+    logging.basicConfig(level=logging.INFO)  # Установка уровня логирования
+    formatter = logging.Formatter('%(filename)s:%(lineno)d #%(levelname)-8s [%(asctime)s] - %(name)s - %(message)s')
+    file_handler = logging.FileHandler('bot_logs.log', mode='w', encoding='utf-8')  # Создание обработчика логов
+    file_handler.setFormatter(formatter)  # Установка формата логов
+    logger.addHandler(file_handler)  # Добавление обработчика к логгеру
+
+    # Вывод информации о начале запуска бота
     logger.info('Starting bot')
 
-    # Загружаем конфиг в переменную config
+    # Загрузка конфигурации из файла .env
     config = load_config('.env')
-    # Инициализируем объект хранилища
+
+    # Инициализация объекта хранилища (при необходимости)
     # storage = ...
 
-    # Инициализируем бот и диспетчер
-    default = DefaultBotProperties(parse_mode='HTML')
+    # Инициализация бота и диспетчера
+    default = DefaultBotProperties(parse_mode='HTML')  # Установка свойств по умолчанию для бота
+    bot = Bot(token=config.tg_bot.token, default=default)  # Создание объекта бота
+    dp = Dispatcher()  # Создание объекта диспетчера
 
-    bot = Bot(token=config.tg_bot.token, default=default)
-    dp = Dispatcher()
-
-    # Инициализируем другие объекты (пул соединений с БД, кеш и т.п.)
+    # Инициализация других объектов (пул соединений с БД, кеш и т.п.)
     # ...
 
-    # Помещаем нужные объекты в workflow_data диспетчера
+    # Помещение нужных объектов в workflow_data диспетчера
     dp.workflow_data.update({'token': config.tg_bot.token, 'admin_ids': config.tg_bot.admin_ids})
 
-    # Настраиваем главное меню бота
+    # Настройка главного меню бота
     await set_main_menu(bot)
 
-    # Регистриуем роутеры
+    # Регистрация роутеров
     logger.info('Подключаем роутеры')
-    dp.include_router(admin_handlers.router)
-    dp.include_router(user_handlers.router)
-    dp.include_router(other_handlers.router)
+    dp.include_router(admin_handlers.router)  # Подключение роутера для администраторов
+    dp.include_router(user_handlers.router)  # Подключение роутера для пользователей
+    dp.include_router(other_handlers.router)  # Подключение других роутеров
 
-    await bot.delete_webhook(drop_pending_updates=True)
-    await dp.start_polling(bot)
+    # Удаление вебхука и запуск polling
+    await bot.delete_webhook(drop_pending_updates=True)  # Удаление вебхука и удаление ожидающих обновлений
+    await dp.start_polling(bot)  # Запуск поллинга
 
 
+# Запуск main при запуске скрипта
 if __name__ == '__main__':
     asyncio.run(main())
