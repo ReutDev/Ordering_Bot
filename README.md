@@ -14,8 +14,8 @@
 
 1. Клонируйте репозиторий:
     ```sh
-    git clone https://github.com/yourusername/yourbotrepo.git
-    cd yourbotrepo
+    git clone https://github.com/ReutDev/Ordering_Bot.git
+    cd Ordering_Bot
     ```
 2. Установите необходимые пакеты:
     ```sh
@@ -25,7 +25,8 @@
     - Создайте файл `.env` в корневом каталоге и добавьте ваш токен бота и другие настройки.
     - Пример:
       ```env
-      TG_BOT_TOKEN=your-telegram-bot-token
+      BOT_TOKEN_MARY=5424991242:AAGwomxQz1p46bRi_2m3V7kvJlt5RjK9xr0
+      ADMIN_IDS=123456789
       ```
 4. Запустите бота:
     ```sh
